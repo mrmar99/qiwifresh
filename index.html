@@ -7,13 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <select id="selector">
-    <option disabled selected>Выберите валюту</option>
-  </select>
-  <div class="selected-currency">
-    <span class="selected-currency-name"></span>
-    <span class="current-date"></span>
-    <span class="previous-date"></span>
+  <div class="container">
+    <select id="selector">
+      <option disabled selected>Выберите валюту</option>
+    </select>
+    <div class="selected-currency">
+      <span class="selected-currency-name"></span>
+      <div class="currencies">
+        <div class="previous-currency currency">
+          <span class="currency__placeholder">Предыдущий курс</span>
+          <div class="previous-currency__value currency__value"></div>
+          <span class="previous-currency__date"></span>
+        </div>
+        <div class="current-currency currency">
+          <span class="currency__placeholder">Текущий курс</span>
+          <div class="current-currency__value currency__value"></div>
+          <span class="current-currency__date"></span>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>

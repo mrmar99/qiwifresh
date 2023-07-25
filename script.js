@@ -1,9 +1,11 @@
 const body = document.getElementsByTagName("body")[0];
 const selector = document.getElementById("selector");
 const currencyName = document.querySelector(".selected-currency-name");
-const currencyCurrent = document.querySelector(".current-date");
-const currencyPrevious = document.querySelector(".previous-date");
 const selectedCurrencyContainer = document.querySelector(".selected-currency");
+const currencyCurrentValue = document.querySelector(".current-currency__value");
+const currencyCurrentDate = document.querySelector(".current-currency__date");
+const currencyPreviousValue = document.querySelector(".previous-currency__value");
+const currencyPreviousDate = document.querySelector(".previous-currency__date");
 
 async function fetchCurrency() {
   try {
@@ -23,18 +25,23 @@ async function fetchCurrency() {
 
 function formatDate(strDate) {
   const date = new Date(strDate);
+
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
 
-  return `${day}.${month}.${year}`;
+  return `Курс на ${day}.${month}.${year}`;
 }
 
 function updateCurrencyContainer(selectedCurrency, current, previous) {
   const { ID, Name, CharCode, Value, Previous } = selectedCurrency;
   currencyName.textContent = `${ID} - ${Name} (${CharCode}).`;
-  currencyCurrent.textContent = `Текущий курс на ${formatDate(current)} - ${Value}`;
-  currencyPrevious.textContent = `Предыдущий курс на ${formatDate(previous)} - ${Previous}`;
+
+  currencyCurrentDate.textContent = formatDate(current);
+  currencyCurrentValue.textContent = Value;
+
+  currencyPreviousDate.textContent = formatDate(previous);
+  currencyPreviousValue.textContent = Previous;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
