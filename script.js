@@ -35,7 +35,7 @@ function formatDate(strDate) {
 
 function updateCurrencyContainer(selectedCurrency, current, previous) {
   const { ID, Name, CharCode, Value, Previous } = selectedCurrency;
-  currencyName.textContent = `${ID} - ${Name} (${CharCode}).`;
+  currencyName.textContent = `${ID} - ${Name} (${CharCode})`;
 
   currencyCurrentDate.textContent = formatDate(current);
   currencyCurrentValue.textContent = Value;
